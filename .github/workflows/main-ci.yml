@@ -8,6 +8,7 @@ on:
 
 jobs:
   checkstyle_job:
+    permissions: write-all
     runs-on: ubuntu-latest
     name: Checkstyle job
     steps:
