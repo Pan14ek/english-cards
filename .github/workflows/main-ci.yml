@@ -13,6 +13,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+      - uses: reviewdog/action-setup@v1
+      - run: reviewdog -version
       - name: Run check style
         uses: nikitasavinov/checkstyle-action@master
         with:
