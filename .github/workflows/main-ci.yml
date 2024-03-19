@@ -17,7 +17,7 @@ jobs:
         uses: nikitasavinov/checkstyle-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          reporter: github-pr-review
+          reporter: 'github-pr-review'
           tool_name: 'testtool'
   build:
     runs-on: ubuntu-latest
