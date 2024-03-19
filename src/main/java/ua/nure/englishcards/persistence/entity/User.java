@@ -8,13 +8,17 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
+/**
+ * The entity represents the table users in DB
+ * that contains fields id, email, nickname and password.
+ */
 @EqualsAndHashCode(callSuper = true)
 @Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "users")
-public class User extends EntityWithUUID {
+public class User extends EntityWithUuid {
 
   @Column(name = "email", nullable = false)
   private String email;

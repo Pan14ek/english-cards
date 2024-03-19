@@ -5,14 +5,17 @@ import jakarta.persistence.MappedSuperclass;
 import java.util.UUID;
 import lombok.Data;
 
+/**
+ * This entity represents a super class with uuid.
+ */
 @Data
 @MappedSuperclass
-public class EntityWithUUID {
+public class EntityWithUuid {
 
   @Id
   private UUID id;
 
-  public EntityWithUUID() {
+  public EntityWithUuid() {
     this.id = UUID.randomUUID();
   }
 
