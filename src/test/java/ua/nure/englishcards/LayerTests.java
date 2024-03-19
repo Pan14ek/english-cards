@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 
 import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.classes;
 import static com.tngtech.archunit.library.dependencies.SlicesRuleDefinition.slices;
+import static java.lang.String.format;
 
 
 public class LayerTests {
@@ -51,7 +52,7 @@ public class LayerTests {
 
     @Test
     public void shouldNotHaveCycleDependenciesInClasses() {
-        slices().matching("ua.nure.englishcards.(*)..").should().beFreeOfCycles();
+        slices().matching(format("%s.(*)..", ROOT_PATH)).should().beFreeOfCycles();
     }
 
 }
