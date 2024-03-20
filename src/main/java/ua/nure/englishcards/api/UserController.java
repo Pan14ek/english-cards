@@ -1,5 +1,6 @@
 package ua.nure.englishcards.api;
 
+import java.util.List;
 import java.util.UUID;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -88,7 +89,7 @@ public class UserController {
   public ResponseEntity<UserModel> updateUser(@RequestBody UpdateUserModel updateUserModel) {
     try {
       UserModel user =
-          new UserModel(UUID.fromString(updateUserModel.uuid()), updateUserModel.email(),
+          new UserModel(UUID.fromString(updateUserModel.id()), updateUserModel.email(),
               updateUserModel.nickname());
 
       UserModel userModel = userService.updateUser(user);
@@ -96,6 +97,12 @@ public class UserController {
     } catch (NotFoundUserException notFoundUserException) {
       throw new ResponseStatusException(HttpStatus.NOT_FOUND, notFoundUserException.getMessage());
     }
+  }
+
+  @GetMapping
+  public ResponseEntity<List<UserModel>> getAllUsersByOffsetAndLimit(
+      @RequestParam("offset") int offset, @RequestParam("limit") int limit) {
+    return ResponseEntity.ok(userService.getUsers(offset, limit));
   }
 
 }
