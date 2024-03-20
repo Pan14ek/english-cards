@@ -84,12 +84,12 @@ public class UserServiceImpl implements UserService {
       throw new NotFoundUserException(String.format("Not found user by uuid %s", user.id()));
     }
 
-    User userFromDB = foundUser.get();
+    User userFromDb = foundUser.get();
 
-    userFromDB.setEmail(user.email());
-    userFromDB.setNickname(user.nickname());
+    userFromDb.setEmail(user.email());
+    userFromDb.setNickname(user.nickname());
 
-    User updatedUser = userRepository.save(userFromDB);
+    User updatedUser = userRepository.save(userFromDb);
 
     return getUserModel(updatedUser);
   }
