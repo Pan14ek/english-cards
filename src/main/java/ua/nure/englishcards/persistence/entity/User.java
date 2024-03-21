@@ -3,6 +3,9 @@ package ua.nure.englishcards.persistence.entity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
+import jakarta.persistence.Temporal;
+import jakarta.persistence.TemporalType;
+import java.time.LocalDateTime;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -28,5 +31,9 @@ public class User extends EntityWithUuid {
 
   @Column(name = "password", nullable = false)
   private String password;
+
+  @Column(name = "registered_date")
+  @Temporal(TemporalType.TIMESTAMP)
+  private LocalDateTime registeredDate;
 
 }

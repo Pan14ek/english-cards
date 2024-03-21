@@ -99,7 +99,7 @@ public class UserController {
     }
   }
 
-  @GetMapping
+  @GetMapping("/all")
   public ResponseEntity<List<UserModel>> getAllUsersByOffsetAndLimit(
       @RequestParam("offset") int offset, @RequestParam("limit") int limit) {
     return ResponseEntity.ok(userService.getUsers(offset, limit));
