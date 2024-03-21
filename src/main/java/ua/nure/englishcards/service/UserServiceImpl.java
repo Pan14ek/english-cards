@@ -1,6 +1,7 @@
 package ua.nure.englishcards.service;
 
 import jakarta.validation.constraints.NotNull;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -41,6 +42,7 @@ public class UserServiceImpl implements UserService {
     newUser.setEmail(user.email());
     newUser.setNickname(user.nickname());
     newUser.setPassword(passwordEncoder.encode(user.password()));
+    newUser.setRegisteredDate(LocalDateTime.now());
 
     User saveUser = userRepository.save(newUser);
 
