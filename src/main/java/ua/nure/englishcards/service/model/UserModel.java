@@ -9,5 +9,9 @@ import java.util.UUID;
  * @param email    is a email id
  * @param nickname is a user nickname
  */
-public record UserModel(UUID id, String email, String nickname) {
+public record UserModel(
+    UUID id,
+    String email,
+    String nickname
+) {
 }
