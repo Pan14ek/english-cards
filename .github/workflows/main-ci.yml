@@ -22,6 +22,7 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           reporter: 'github-pr-review'
           tool_name: 'testtool'
+          checkstyle_config: config/checkstyle/checkstyle.xml
   build:
     runs-on: ubuntu-latest
     steps:
