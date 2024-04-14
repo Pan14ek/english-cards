@@ -9,7 +9,7 @@ public interface CardTopicService {
 
   CardTopicModel saveNewTopic(NewCardTopic newCardTopic);
 
-  CardTopicModel getTopicById(UUID id);
+  CardTopicModel getTopicById(UUID id) throws NotFoundCardTopicException;
 
   List<CardTopicModel> getTopics(int offset, int limit);
 

@@ -9,11 +9,11 @@ public interface CardService {
 
   CardModel saveNewCard(NewCardModel newCardModel);
 
-  CardModel updateCard(CardModel cardModel);
+  CardModel updateCard(CardModel cardModel) throws NotFoundCardException;
 
-  CardModel getCardById(UUID id);
+  CardModel getCardById(UUID id) throws NotFoundCardException;
 
-  CardModel getCardByWord(String word);
+  CardModel getCardByWord(String word) throws NotFoundCardException;
 
   List<CardModel> getCards(int offset, int limit);
 
