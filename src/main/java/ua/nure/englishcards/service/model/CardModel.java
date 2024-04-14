@@ -7,6 +7,7 @@ public record CardModel(
     String word,
     String translation,
     String explanation,
-    String explanationTranslation
+    String explanationTranslation,
+    UUID cardDeckId
 ) {
 }
