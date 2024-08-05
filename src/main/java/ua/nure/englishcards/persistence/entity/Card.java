@@ -10,6 +10,10 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
+/**
+ * Entity representing a card.
+ * Each card has a word, its translation, an optional explanation, an optional explanation translation, and is associated with a card deck.
+ */
 @EqualsAndHashCode(callSuper = true)
 @Data
 @NoArgsConstructor
@@ -17,20 +21,33 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name = "cards")
 public class Card extends EntityWithUuid {
-
+  /**
+   * The word on the card.
+   */
   @Column(name = "word", nullable = false)
   private String word;
 
+  /**
+   * The translation of the word.
+   */
   @Column(name = "translation", nullable = false)
   private String translation;
 
-  @Column(name = "translation")
+  /**
+   * The explanation of the word.
+   */
+  @Column(name = "explanation")
   private String explanation;
 
+  /**
+   * The translation of the explanation.
+   */
   @Column(name = "explanation_translation")
   private String explanationTranslation;
 
+  /**
+   * The card deck to which this card belongs.
+   */
   @ManyToOne(fetch = FetchType.LAZY)
   private CardDeck cardDeck;
-
 }
