@@ -12,7 +12,8 @@ import lombok.NoArgsConstructor;
 
 /**
  * Entity representing a card.
- * Each card has a word, its translation, an optional explanation, an optional explanation translation, and is associated with a card deck.
+ * Each card has a word, its translation, an optional explanation, an optional explanation
+ * translation, and is associated with a card deck.
  */
 @EqualsAndHashCode(callSuper = true)
 @Data

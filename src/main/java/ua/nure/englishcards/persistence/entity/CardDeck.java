@@ -16,7 +16,8 @@ import lombok.NoArgsConstructor;
 
 /**
  * Entity representing a card deck.
- * Each card deck has a name, an optional description, and is associated with a user and a card topic.
+ * Each card deck has a name, an optional description, and is associated with a user
+ * and a card topic.
  * A card deck contains multiple cards.
  */
 @EqualsAndHashCode(callSuper = true)

@@ -4,7 +4,8 @@ import java.util.UUID;
 
 /**
  * A record representing a card model.
- * Each card model contains an ID, word, translation, explanation, explanation translation, and the ID of the associated card deck.
+ * Each card model contains an ID, word, translation, explanation, explanation translation,
+ * and the ID of the associated card deck.
  */
 public record CardModel(
     UUID id,
