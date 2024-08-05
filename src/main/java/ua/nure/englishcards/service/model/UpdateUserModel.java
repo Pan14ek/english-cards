@@ -7,5 +7,9 @@ package ua.nure.englishcards.service.model;
  * @param email    is a email id
  * @param nickname is a user nickname
  */
-public record UpdateUserModel(String id, String email, String nickname) {
+public record UpdateUserModel(
+    String id,
+    String email,
+    String nickname
+) {
 }
