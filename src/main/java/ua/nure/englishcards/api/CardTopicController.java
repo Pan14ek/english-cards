@@ -1,5 +1,7 @@
 package ua.nure.englishcards.api;
 
+import io.micrometer.core.annotation.Counted;
+import io.micrometer.core.annotation.Timed;
 import java.util.List;
 import java.util.UUID;
 import lombok.RequiredArgsConstructor;
@@ -35,6 +37,8 @@ public class CardTopicController {
    * @param limit  the maximum number of card topics to retrieve
    * @return a ResponseEntity containing the list of card topics
    */
+  @Timed
+  @Counted
   @GetMapping("/all")
   public ResponseEntity<List<CardTopicModel>> getCardTopics(@RequestParam("offset") int offset,
                                                             @RequestParam("limit") int limit) {
@@ -50,6 +54,8 @@ public class CardTopicController {
    * @return a ResponseEntity containing the retrieved card topic
    * @throws ResponseStatusException if the card topic is not found
    */
+  @Timed
+  @Counted
   @GetMapping("/{uuid}")
   public ResponseEntity<CardTopicModel> getCardTopicByUuid(@PathVariable("uuid") String uuid) {
     try {
@@ -66,6 +72,8 @@ public class CardTopicController {
    * @param cardTopic the model containing the details of the new card topic
    * @return a ResponseEntity containing the created card topic
    */
+  @Timed
+  @Counted
   @PostMapping
   public ResponseEntity<CardTopicModel> addCardTopic(NewCardTopicModel cardTopic) {
     CardTopicModel newCardTopic = cardTopicService.saveNewTopic(cardTopic);
