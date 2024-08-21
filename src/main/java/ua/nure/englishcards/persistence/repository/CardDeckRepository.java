@@ -10,7 +10,8 @@ import ua.nure.englishcards.persistence.entity.CardTopic;
 
 /**
  * Repository interface for managing card decks.
- * Provides CRUD operations for card decks and methods to find card decks by name, topic, and user ID.
+ * Provides CRUD operations for card decks and methods to
+ * find card decks by name, topic, and user ID.
  */
 public interface CardDeckRepository extends JpaRepository<CardDeck, UUID> {
 

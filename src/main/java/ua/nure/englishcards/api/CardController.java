@@ -1,5 +1,7 @@
 package ua.nure.englishcards.api;
 
+import io.micrometer.core.annotation.Counted;
+import io.micrometer.core.annotation.Timed;
 import java.util.List;
 import java.util.UUID;
 import lombok.RequiredArgsConstructor;
@@ -36,6 +38,8 @@ public class CardController {
    * @param limit  the maximum number of cards to retrieve
    * @return a ResponseEntity containing the list of cards
    */
+  @Timed
+  @Counted
   @GetMapping("/all")
   public ResponseEntity<List<CardModel>> getCards(@RequestParam("offset") int offset,
                                                   @RequestParam("limit") int limit) {
@@ -50,6 +54,8 @@ public class CardController {
    * @param newCardModel the model containing the details of the new card
    * @return a ResponseEntity containing the created card
    */
+  @Timed
+  @Counted
   @PostMapping
   public ResponseEntity<CardModel> addCard(NewCardModel newCardModel) {
     CardModel cardModel = cardService.saveNewCard(newCardModel);
@@ -64,6 +70,8 @@ public class CardController {
    * @return a ResponseEntity containing the updated card
    * @throws ResponseStatusException if the card is not found
    */
+  @Timed
+  @Counted
   @PutMapping
   public ResponseEntity<CardModel> updateCard(CardModel cardModel) {
     try {
@@ -82,6 +90,8 @@ public class CardController {
    * @return a ResponseEntity containing the retrieved card
    * @throws ResponseStatusException if the card is not found
    */
+  @Timed
+  @Counted
   @GetMapping("/{uuid}")
   public ResponseEntity<CardModel> getCardByUuid(@PathVariable("uuid") String uuid) {
     try {
@@ -100,6 +110,8 @@ public class CardController {
    * @return a ResponseEntity containing the retrieved card
    * @throws ResponseStatusException if the card is not found
    */
+  @Timed
+  @Counted
   @GetMapping("/word/{word}")
   public ResponseEntity<CardModel> getCardByWord(@PathVariable("word") String word) {
     try {

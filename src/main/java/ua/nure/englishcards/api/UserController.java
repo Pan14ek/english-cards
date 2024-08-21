@@ -1,5 +1,7 @@
 package ua.nure.englishcards.api;
 
+import io.micrometer.core.annotation.Counted;
+import io.micrometer.core.annotation.Timed;
 import java.util.List;
 import java.util.UUID;
 import lombok.RequiredArgsConstructor;
@@ -36,6 +38,8 @@ public class UserController {
    * @param newUserModel is a new user
    * @return saved user
    */
+  @Timed
+  @Counted
   @PostMapping
   public ResponseEntity<UserModel> addNewUser(@RequestBody NewUserModel newUserModel) {
     UserModel userModel = userService.addNewUser(newUserModel);
@@ -50,6 +54,8 @@ public class UserController {
    * @param uuid is user id
    * @return {@code UserModel} or {@code ResponseStatusException}
    */
+  @Timed
+  @Counted
   @GetMapping("/{uuid}")
   public ResponseEntity<UserModel> getUserByUuid(@PathVariable("uuid") String uuid) {
     try {
@@ -68,6 +74,8 @@ public class UserController {
    * @param email is user email
    * @return {@code UserModel} or {@code ResponseStatusException}
    */
+  @Timed
+  @Counted
   @GetMapping
   public ResponseEntity<UserModel> getUserByEmail(@RequestParam("email") String email) {
     try {
@@ -85,6 +93,8 @@ public class UserController {
    * @param updateUserModel is updated data for the user model
    * @return {@code UserModel} or {@code ResponseStatusException}
    */
+  @Timed
+  @Counted
   @PutMapping
   public ResponseEntity<UserModel> updateUser(@RequestBody UpdateUserModel updateUserModel) {
     try {
@@ -99,6 +109,8 @@ public class UserController {
     }
   }
 
+  @Timed
+  @Counted
   @GetMapping("/all")
   public ResponseEntity<List<UserModel>> getAllUsersByOffsetAndLimit(
       @RequestParam("offset") int offset, @RequestParam("limit") int limit) {
